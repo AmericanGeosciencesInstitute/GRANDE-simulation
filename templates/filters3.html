@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="progress mb-3">
+    <div class="progress-bar" role="progressbar" style="width: 20%;" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">20%</div>
+</div>
+
+<div class="row mt-4">
+    <form hx-post="/filters3" hx-target="#game-container" hx-swap="outerHTML">
+        <div class="form-group filter col-12">
+            <div class="form-label">Choose the location(s) where would you like to live.</div>
+            <div class="region">
+                <p>Northeast</p>
+                <input type="checkbox" name="region" value="northeast" style="display:none;" autocomplete="off">
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="newEngland" name="division" value="newengland">
+                    <label class="form-check-label" for="newEngland"><span class="division-title">New England:</span> Maine, New Hampshire, Vermont, Massachusetts, Rhode Island, Connecticut</label>
+                </div>
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="midAtlantic" name="division" value="midatlantic">
+                    <label class="form-check-label" for="midAtlantic"><span class="division-title">Mid-Atlantic:</span> New York, New Jersey, Pennsylvania</label>
+                </div>
+            </div>
+            <div class="region">
+                <p>South</p>
+                <input type="checkbox" name="region" value="south" style="display:none;" autocomplete="off">
+                <div class="form-check form-switch form-check-region">
+                        <input class="form-check-input" type="checkbox" id="southAtlantic" name="division" value="southatlantic">
+                        <label class="form-check-label" for="southAtlantic"><span class="division-title">South Atlantic:</span> Delaware, Maryland, District of Columbia, Virginia, West Virginia, North Carolina, South Carolina, Georgia, Florida</label>
+                    </div>
+                    <div class="form-check form-switch form-check-region">
+                        <input class="form-check-input" type="checkbox" id="eastSouthCentral" name="division" value="eastsouthcentral">
+                        <label class="form-check-label" for="eastSouthCentral"><span class="division-title">East South Central:</span> Kentucky, Tennessee, Alabama, Mississippi</label>
+                    </div>
+                    <div class="form-check form-switch form-check-region">
+                        <input class="form-check-input" type="checkbox" id="westSouthCentral" name="division" value="westsouthcentral">
+                        <label class="form-check-label" for="westSouthCentral"><span class="division-title">West South Central:</span> Arkansas, Louisiana, Oklahoma, Texas</label>
+                    </div>
+            </div>
+            <div class="region">
+                <p>Midwest</p>
+                <input type="checkbox" name="region" value="midwest" style="display:none;" autocomplete="off">
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="eastNorthCentral" name="division" value="eastnorthcentral">
+                    <label class="form-check-label" for="eastNorthCentral"><span class="division-title">East North Central:</span> Ohio, Indiana, Illinois, Michigan, Wisconsin</label>
+                </div>
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="westNorthCentral" name="division" value="westnorthcentral">
+                    <label class="form-check-label" for="westNorthCentral"><span class="division-title">West North Central:</span> Minnesota, Iowa, Missouri, North Dakota, South Dakota, Nebraska, Kansas</label>
+                </div>
+            </div>
+            <div class="region">
+                <p>West</p>
+                <input type="checkbox" name="region" value="west" style="display:none;" autocomplete="off">
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="mountain" name="division" value="mountain">
+                    <label class="form-check-label" for="mountain"><span class="division-title">Mountain:</span> Montana, Idaho, Wyoming, Colorado, New Mexico, Arizona, Utah, Nevada</label>
+                </div>
+                <div class="form-check form-switch form-check-region">
+                    <input class="form-check-input" type="checkbox" id="pacific" name="division" value="pacific">
+                    <label class="form-check-label" for="pacific"><span class="division-title">Pacific:</span> Washington, Oregon, California, Alaska, Hawaii</label>
+                </div>
+            </div>
+        <button id="submit-button" type="submit"  class="btn btn-primary mt-3" disabled>Next</button>
+    </form>
+</div>
+<script>
+document.getElementsByName('division').forEach(function(division) {
+    division.addEventListener('change', function() {
+        var anyChecked = Array.from(document.getElementsByName('division')).some(function(i) {
+            return i.checked;
+        });
+        document.getElementById('submit-button').disabled = !anyChecked;
+
+        // Check or uncheck the corresponding region checkbox
+        var regionCheckbox = this.closest('.region').querySelector('input[name="region"]');
+        if(this.checked){
+            // If a division checkbox is checked, check the corresponding region checkbox
+            regionCheckbox.checked = true;
+        }
+        else{
+            // If all division checkboxes in a region are unchecked, uncheck the region checkbox
+            var allUnchecked = this.closest('.region').querySelectorAll('input[name="division"]:checked').length === 0;
+            if(allUnchecked){
+                regionCheckbox.checked = false;
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

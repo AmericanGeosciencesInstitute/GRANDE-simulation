@@ -1,0 +1,411 @@
+/* static/css/styles.css */
+body {
+    background-color: #f0f0f0;
+}
+
+h2 {
+    color: #333;
+}
+
+.form-check:nth-child(even) {
+    border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.form-check {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.form-check-region {
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.form-check-interest {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.form-label {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.filter {
+    margin-bottom: 1rem;
+}
+.division-title {
+    font-weight:bold;
+}
+.region p {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    color: var(--bs-primary-text-emphasis);
+    font-weight: bold;
+    background-color: var(--bs-primary-bg-subtle);
+    padding: 10px;
+  }
+.job input[type="radio"] {
+    display: none;
+}
+
+.job label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--bs-green);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.job input[type="radio"]:checked + label {
+    background-color: var(--bs-green);
+}
+.autocomplete-suggestions {
+    border: 2px solid #bebebe;
+    border-top: none;
+    z-index: 99;
+    max-height: 200px;
+    overflow-y: auto;
+    background-color: #fff;
+    width:100%;
+}
+
+.autocomplete-suggestions div {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.autocomplete-suggestions div:hover {
+    background-color: #e9e9e9;
+}
+
+.hazard-row, .question-table-row {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 1rem;
+}
+.hazard-row > div, .question-table-row > div{
+    flex: 1;
+    text-align: center;
+}
+.hazard-row > div:first-child, .question-table-row > div:first-child{
+    text-align: left;
+    flex: 2;
+}
+.hazard-risk-header, .question-table-header {
+    font-weight: bold;
+}
+
+.job-card {
+    margin-bottom: 20px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    background-color: whitesmoke;
+}
+.job-card-header {
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.job-card-body-details {
+    padding: 1em;
+}
+.job-card-body-costs {
+    padding: 1em 0;
+    background-color: #C8E8C8;
+}
+.job-card-body-risks {
+    padding: 1em 0 1em;
+    margin-bottom: 2em;
+    
+}
+
+.job-title {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.job-organization {
+    color: darkslategray;
+    font-style: italic;
+    font-weight: 600;
+}
+.job-organization-location {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+.job-location {
+    font-size: 1em;
+    margin: 0;
+}
+.job-salary {
+    font-size: 1.2em;
+    margin: 5px 0;
+    font-weight: bold;
+}
+.job-description {
+    margin-bottom: 5px;
+}
+.job-cost {
+    font-size: 1em;
+    margin: 0;
+    padding: 0 1em;
+}
+.job-disposable {
+    font-size: 1em;
+    margin: 0;
+    padding: 0 1em;
+}
+.job-crime-risk {
+    font-size: 1em;
+    margin: 1em 0 0;
+    padding: 0 1em;
+}
+.job-crime-risk .info {
+    align-content: center;
+}
+.job-risk-subtitle{
+    font-weight: bold;
+    border-bottom: 1px #ddd solid;
+}
+.job-haz-risk {
+    font-size: 1em;
+    margin: 1em 0 0;
+    padding: 0 1em;
+}
+.hazard-icon {
+    width: 50px;
+    height: 50px;
+    margin: 0.1rem;
+    display: inline-block;
+}
+.hazard-icon p {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 0.8rem;
+}
+/* Change the cursor to a pointer when hovering over a job card */
+.job-card {
+    cursor: pointer;
+}
+
+/* Change the background color when hovering over a job card */
+.job-card:hover {
+    background-color: #f5f5f5; /* Change this to your preferred color */
+    border: 1px solid antiquewhite;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #e94535;
+}
+
+/* Change the background color when a job card is clicked */
+.job-card:active {
+    background-color: #e0e0e0; /* Change this to your preferred color */
+}
+#crime-icon, #earthquake-icon, #fire-icon, #flood-icon, #landslide-icon, #severe-weather-icon, #volcano-icon {
+    height: 50px;
+    width: 50px;
+}
+#earthquake-icon, #fire-icon, #flood-icon, #landslide-icon, #severe-weather-icon, #volcano-icon {
+    margin: .1em;
+}
+svg .cls-1 {fill: #000; stroke-width: 0px;}
+svg .cls-2 {fill: none; stroke-width: 0px;}
+svg .cls-3 {fill: none; stroke-width: 0px;}
+
+.icon svg {
+    /* box-sizing: border-box; */
+    /* border: 2px solid #000000; /* Change to desired border color */
+    padding: 3px; /* Adjust padding as needed */
+}
+
+.icon-blue {
+    background-color: #6EB7ED;
+}
+.icon-yellow {
+    background-color: #F0D55D;
+}
+.icon-red {
+    background-color: #C7445D;
+}
+.icon-noshow {
+    display: none;
+}
+.icon-none {
+    background-color: #ccc;
+}
+.color-guide {
+    padding: 0 1em;
+    margin: 1em 0 2em;
+}
+
+.color-guide-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    float:left;
+    margin-left: 10px;
+}
+
+.color-guide-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.color-guide-description {
+    margin: 0;
+}
+.color-guide-text {
+    font-weight: bold;
+    margin-bottom: 0.1em;
+}
+.risk-info-header {
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  .risk-info-header-text {
+    font-size: .9em;
+}
+.risk-info {
+    padding: 0 1em;
+}
+.form-check-demographic {
+  margin: .5em 1em;
+
+}
+.form-check-demographic:nth-child(2n) {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.job-card-inactive {
+    margin-bottom: 20px;
+  border: 1px solid #d4d4d4;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+.job-id {
+    font-weight: bold;
+    margin-bottom: 0;
+  }
+.footer-text {
+    padding-top: 1rem;
+    font-size: .9rem;
+  }
+.methodology-step, .data-source-header {
+    font-size: 1.05rem;
+    font-weight: bold;
+  }
+.page-theme-subtext {
+    font-weight: normal;
+    font-size: medium;
+    line-height: var(--bs-body-line-height);
+    display: block;
+    padding-top: 1rem;
+}
+.step-title {
+    font-size: small;
+    font-weight: bold;
+    color: slategray;
+}
+  /* <--- ECHARTS CSS ---> */
+#chart-vectors, #chart-importance {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    max-height: 600px;
+    min-height: 300px;
+    min-width: 300px;
+  }
+.legend-item {
+        display: inline-block;
+        margin-right: 10px;
+        margin-top: 10px;
+    }
+.legend-color-box {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-right: 5px;
+    }
+.bi-arrow-up-circle-fill, .bi-arrow-up-circle, .bi-caret-up-fill {
+    color: #d73636;
+}
+.bi-arrow-down-circle-fill, .bi-arrow-down-circle, .bi-caret-down-fill {
+    color: #589653;
+}
+.bi-dash-circle-fill, .bi-dash-circle {
+    color: #5470c6;
+}
+.jobpairs {
+    color: peru;
+}
+.jobchoices {
+    color: seagreen;
+}
+.job-bucket-icons {
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+.agi-footer-text {
+    font-size: 0.75rem;
+}
+.page-theme {
+    background-color: cornsilk;
+    padding: 1rem;
+}
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    border-bottom: 2px solid lightsteelblue;
+  }
+  .range-label {
+    position: relative;
+    font-size: .9rem;
+    font-weight: bold;
+    color: steelblue;
+  }
+  .range-label-min {
+    left: 0;
+  }
+
+  .range-label-max {
+    right: 0;
+  }
+  .form-range::-moz-range-thumb {
+    background-color: steelblue;
+  }
+  .likert-form {
+    border: 1px solid #ccc;
+    padding: 1rem;
+  }
+  .likert-form-single {
+    max-width: 600px;
+    margin-bottom: 1rem;
+}
+.suggestion-item.highlighted {
+    background-color: #e9ecef; /* Light grey, adjust as needed */
+}
+.agi-logo {
+  float: left;
+  max-width: 50px;
+  margin: 0 1.5rem 1rem 0;
+}
+.agi-logo-text {
+    float: left;
+    max-width: 250px;
+}

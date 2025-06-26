@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="methodology">
+    <h4>Methodology</h4>
+    <p>This game involves hazard risk, employment opportunities, and domicile factors (location of residence, etc.). Participants are asked to choose between job offers that vary employment factors (salary, job tasks), hazard risks (both natural disturbance and human factors), and domicile factors (location of residence, community amenities, etc.). Our aim with the survey is to understand what factors occur together with accepting jobs in areas with higher and lower risk.</p>
+    <p>There are 9 steps in the game that are detailed below.</p>
+    <p class="methodology-step">Step 1: Age gate</p>
+    <p>Participants are required to be at least 18 years of age to play the game. They must specify their age before being able to start the game.</p>
+    <p class="methodology-step">Step 2: Educational background and location preference</p>
+    <p>Participants are asked to provide information about their educational background and location preference. This information is used to tailor the job offers presented to the participant.</p>
+    <p class="methodology-step">Step 3: Choosing a job</p>
+    <p>A set of 16 jobs are selected and presented to the participant in pairs. The participant progresses through 4 rounds of selections starting with the initial set of 16 jobs to a final choice in the last round. Each job offer includes information about the job tasks, salary, hazard risk, and domicile factors. Participants are asked to choose the job offer that they would be more likely to accept. Jobs details vary the salary vs. cost of living, crime rate and hazard rate.</p>
+    <p class="methodology-step">Step 4: Reasons for the final job choice</p>
+    <p>The participant is asked to provide reasons for their final job choice. This information is used to understand the factors that influence the participant's decision-making process.</p>
+    <p class="methodology-step">Step 5: Risk tolerance assessment</p>
+    <p>The participant is asked about their level of concern with hazards in the location where they live, about how much they would be willing to spend to avoid loss and harm from hazards, and the severity of impacts they have experienced from specific hazards. This information is used to understand the participant's overall risk tolerance level.</p>
+    <p class="methodology-step">Step 6: Factors influencing choice of current residence</p>
+    <p>The participant is asked about the factors that influenced their choice of current residence. This information is used to understand the participant's preferences and priorities when choosing a place to live, including how hazard risk influences that choice.</p>
+    <p class="methodology-step">Step 7: Factors influencing choice of current occupation</p>
+    <p>The participant is asked about the factors that influenced their choice of current occupation. This information is used to understand the participant's preferences and priorities when choosing a job.</p>
+    <p class="methodology-step">Step 8: Cohort information</p>
+    <p>The participant is asked about their demographic information. This information is used to calculate the participant's hazard metrics relative to their cohort.</p>
+    <p class="methodology-step">Step 9: Job choice and metrics</p>
+    <p>The participant is shown their final job choice and provided information on their hazard risk sensitivity. </p>
+</div>
+<div class="data-sources">
+    <h4>Sources of data used in this game</h4>
+    <p>The data used in this game comes from the sources listed below. Also provided are caveats on the incorporation of the data into the game.</p>
+    <p class="data-source-header">US Bureau of Labor Statistics: Occupational Employment Statistics, May 2023</p>
+    <ul>
+        <li>Source: <a href="https://www.bls.gov/oes/tables.htm">https://www.bls.gov/oes/tables.htm</a></li>
+        <li>Data used: total employment and annual salary data for each occupation code at the state level.</li>
+        <li>Rows where no annual wages were provided were deleted from the useable data set.</li>
+        <li>Cells marked with # were re-populated with $239,200. According to BLS, the #  = indicates a wage equal to or greater than $115.00 per hour or $239,200 per year.</li>
+    </ul>
+    <p class="data-source-header">FEMA's National Risk Index</p>
+    <ul>
+        <li>Source: <a href="https://hazards.fema.gov/nri/data-resources">https://hazards.fema.gov/nri/data-resources</a></li>
+        <li>Data used: County level data for overall risk rating and risk ratings for each identified hazard: avalanche, coastal flooding, cold wave, drought, earthquake, hail, heat wave, hurricane, ice storm, landslide, lightning, riverine flooding, strong wind, tornado, tsunami, volcanic activity, wildfire, and winter weather.</li>
+    </ul>
+    <p class="data-source-header">Economic Policy Institute Family Budget Calculator, January 2024</p>
+    <ul>
+        <li>Source: <a href="https://www.epi.org/resources/budget/">https://www.epi.org/resources/budget/</a></li>
+        <li>Data used: Data for the "1 person 0 children" family category. </li>
+        <li>Note that data are in 2023 dollars.</li>
+    </ul>
+    <p class="data-source-header">FBI Crime Data Explorer, NBIRS Tables: State tables, offenses by agency for 2022</p>
+    <ul>
+        <li>Source: <a href="https://cde.ucr.cjis.gov/LATEST/webapp/#">https://cde.ucr.cjis.gov/LATEST/webapp/#</a></li>
+        <li>Data used: United States Offense Type by Agency, 2022: population, total offenses, crimes against persons, crimes against property, and crimes against society.</li>
+        <li>Rates are calculated as  crime per 1,000 persons ((number of crimes / population) * 1,000)</li>
+        <li>Data is only used for cities as this is the only data that provides population data.</li>
+    </ul>
+    <p class="data-source-header">O*NET® 28.3 Database</p>
+    <ul>
+        <li>Source: <a href="https://www.onetcenter.org/database.html#all-files">https://www.onetcenter.org/database.html#all-files</a></li>
+        <li>Data used:<br>
+            Job Zones: Maps the occupational codes to the corresponding job zone.<br>
+        <li>This game includes information from the <a href="https://www.onetcenter.org/database.html">O*NET 28.3 Database</a> by the U.S. Department of Labor, Employment and Training Administration (USDOL/ETA). Used under the <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a> license.</li>
+    </ul>
+</div>
+<form hx-post="/finalpage" hx-target="#game-container" hx-swap="outerHTML">
+    <h4>Start the game</h4>
+    <p>Use the button below to start playing the game.</p>
+    <button id="submit-button" type="submit-button" class="btn btn-primary">Play game</button>
+</form>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="progress mb-3">
+    <div class="progress-bar" role="progressbar" style="width:95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+</div>
+<h3 class="page-theme">Tell us about yourself</h3>
+<div class="row mt-4">
+    <form hx-post="/cohort" hx-target="#game-container" hx-swap="outerHTML">
+        <div class="form-group filter col-12  mb-3">
+            <label for="careerstage" class="form-label">What is your current career stage?</label>
+            <select class="form-select" id="careerstage" name="careerstage"  style="max-width:600px;">
+                <option value="na" selected>Choose...</option>
+                <option value="0t4">0-4 years post-degree</option>
+                <option value="5t10">5-10 years post-degree</option>
+                <option value="10t14">10-14 years post-degree</option>
+                <option value="15p">15+ years post-degree</option>
+            </select>
+        </div>
+        <div class="form-group filter col-12 mb-3 mt-5">
+            <label for="race_ethnicity" class="form-label">What race/ethnicities do you identify with?</label>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="aian" name="race_ethnicity" value="aian">
+                <label class="form-check-label" for="aian">American Indian or Alaskan Native</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="asia" name="race_ethnicity" value="asia">
+                <label class="form-check-label" for="asia">Asian</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="blaa" name="race_ethnicity" value="blaa">
+                <label class="form-check-label" for="blaa">Black or African American</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="hisp" name="race_ethnicity" value="hisp">
+                <label class="form-check-label" for="hisp">Hispanic or Latino</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="mena" name="raceethnicity" value="mena">
+                <label class="form-check-label" for="mena">Middle Eastern or North African</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="nhpi" name="race_ethnicity" value="nhpi">
+                <label class="form-check-label" for="nhpi">Native Hawaiian or Pacific Islander</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="white" name="race_ethnicity" value="white">
+                <label class="form-check-label" for="white">White</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="race_ethnicity_na" name="race_ethnicity" value="na">
+                <label class="form-check-label" for="race_ethnicity_na">Prefer not to answer</label>
+            </div>
+        </div>
+        <div class="form-group filter col-12 mt-5">
+            <label for="gender" class="form-label">How do you describe your gender identity?</label>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="male" name="gender" value="male">
+                <label class="form-check-label" for="male">Male</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="female" name="gender" value="female">
+                <label class="form-check-label" for="female">Female</label>
+            </div>
+            <div class="form-check form-switch form-check-demographic">
+                <input class="form-check-input" type="checkbox" id="gender_na" name="gender" value="na">
+                <label class="form-check-label" for="gender_na">Prefer not to answer</label>
+            </div>
+        <button id="submit-button" type="submit" class="btn btn-primary mt-3">Next</button>
+    </form> 
+</div>
+{% endblock %}

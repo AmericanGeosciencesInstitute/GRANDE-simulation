@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="progress mb-3">
+    <div class="progress-bar" role="progressbar" style="width:80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+</div>
+
+<h3 class="page-theme">Current location factors</h3>
+<div class="row mt-4">
+    <form hx-post="/currentlocation" hx-target="#game-container" hx-swap="outerHTML">
+        <h4 class="mb-3 fw-bold">How important were these factors in choosing your current residence?</h4>
+        <div class="likert-form likert-form-single">
+            <div class="range-labels">
+                <div class="range-label range-label-min">Not<br>important</div>
+                <div class="range-label range-label-middle">Somewhat<br>important</div>
+                <div class="range-label range-label-max">Extremely<br>important</div>
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="climate" class="form-label">Weather and climate of location</label>
+                <input type="range" class="form-range" id="climate" name="climate" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="resources" class="form-label">Community resources<br>(i.e., amenities, entertainment, job availability, etc.)</label>
+                <input type="range" class="form-range" id="resources" name="resources" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="social" class="form-label">Distance from family and other social networks</label>
+                <input type="range" class="form-range" id="social" name="social" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="income" class="form-label">Disposable income</label>
+                <input type="range" class="form-range" id="income" name="income" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="crime" class="form-label">Crime risk</label>
+                <input type="range" class="form-range" id="crime" name="crime" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="hazard" class="form-label">Hazard risk</label>
+                <input type="range" class="form-range" id="hazard" name="hazard" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="location" class="form-label">Location of job</label>
+                <input type="range" class="form-range" id="location" name="location" min="1" max="5" value="1">
+            </div>
+            <div class="form-group filter col-12">     
+                <label for="other" class="form-label">Other factors not listed here</label>
+                <input type="range" class="form-range" id="other" name="other" min="1" max="5" value="1">
+            </div>
+        </div>
+            
+        <button id="submit-button" type="submit-button" class="btn btn-primary">Next</button>
+    </form>
+</div>
+{% endblock %}

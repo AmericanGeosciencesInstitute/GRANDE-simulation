@@ -1,0 +1,10 @@
+{
+    "hazardZoneColors": [
+        {"code": "Rav", "color": "steelblue", "title": "Risk Averse" },
+        {"code": "Rid", "color": "indianred", "title": "Risk Indifferent" },
+        {"code": "RAl", "color": "goldenrod", "title": "Risk Aware (Low Risk)" },
+        {"code": "RAh", "color": "darkgoldenrod", "title": "Risk Aware (High Risk)" },
+        {"code": "RAn", "color": "#9a9185", "title": "Risk Neutral" }
+    ]
+        
+}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block content %}
+<div id="filter-steps">
+    <form hx-post="/" hx-target="#game-container" hx-swap="outerHTML">
+        <div class="form-group filter col-12">
+            <div>
+                <h4 style="font-weight:bold;">About the Game</h4>
+                <p>The purpose of this game is to understand how natural hazard risk and the perception of that risk influences a person's choice of residence and occupation. Hazard risk is defined as the probability of a hazard occuring and the value of the property at risk from that hazard.</p>
+                <p>In this game, you will be asked to choose between job offers that vary employment factors (e.g., salary, job tasks), risks (i.e., both natural hazards and human factors), and domicile factors (e.g., location of residence, community amenities, etc.).</p>
+            </div>
+            <div>
+                <h4 style="font-weight:bold;">The Approach</h4>
+                <p><span style="font-weight: bold;">Step 1:</span> You will be asked to specify your educational background and location preference.</p>
+                <p><span style="font-weight: bold;">Step 2:</span> Based on your choices in Step 1, a collection of 16 jobs will be selected for you to consider. You will be shown 2 jobs at a time and will be given the option to choose one of those jobs or neither of those jobs.</p> 
+                <ul>
+                    <li>If you reject all jobs in the initial collection, 16 new jobs will be generated for you to consider.</li>
+                    <li>If you select more than one job, you will progress to additional rounds where you will compare the selected jobs until only one job remains.</li>
+                </ul>
+                <p><span style="font-weight: bold;">Step 3:</span> After you reach a final job selection, you will be asked about what factors influenced that decision.</p>
+                <p><span style="font-weight: bold;">Step 4:</span> You will be asked about your current location and occupation relative to hazards. This information will be used to calculate your level of hazard sensitivity. Specifically, you will be asked about:</p>
+                <ul>
+                    <li>your level of concern with hazards in your current location,</li>
+                    <li>the amount you would spend to avoid harm or loss from hazards,</li>
+                    <li>your prior experience with hazards, and</li> 
+                    <li>the level of importance you assigned to hazard risk in choosing your location and new job</li> 
+                </ul>
+                <p><span style="font-weight: bold;">Step 5:</span> You will be asked about your career stage and racial, ethnic and gender cohorts.</p>
+                <p><span style="font-weight: bold;">Step 6:</span> You will be shown your final job choice and information about your hazard sensitivity and factors that influenced your choice of job and location.</p>
+                <p>Read more about our approach on our <a href="/about">methodology</a> page.</p>
+            </div>
+            <div>
+                <h4 style="font-weight:bold;">Play the Game</h4>
+                <p>Thank you for participating in this research project.</p>
+                <ul>
+                    <li><span style="font-weight: bold;">To restart the game at any point, refresh your browser.</span>
+                        You will return to this page to start the game again.</li>
+                    <li><span style="font-weight: bold;">On average, this game takes approximately 5 minutes to play.</span>
+                        It may take shorter or longer based upon how quickly you arrive at your final job choice.</li>
+                        <li><span style="font-weight: bold;">You must be at least 18 years old to play this game.</span></li>
+                        <li><span style="font-weight: bold;">For the optimal experience, we recommend using a desktop computer. If you're using a mobile device, iPhone 14 or newer, or Android phones provide the best performance.</span></li>
+                </ul>
+                <label for="age" class="form-label">Select your age <span class="text-danger">*</span></label>
+                <select class="form-select mb-5" id="age" name="age" style="max-width:200px; border: 2px solid #dc3545; box-shadow: none;" required>
+                    <option selected>Choose...</option>
+                    {% for i in range(18, 100) %}
+                        <option value="{{ i }}">{{ i }}</option>
+                    {% endfor %}
+                </select>
+                <button id="submit-button" type="submit" class="btn btn-primary" disabled>Start Game</button>
+            </div>
+        </div>
+    </form>
+    <script>
+        document.getElementById('age').addEventListener('change', function() {
+            if (this.value > 17) {
+                document.getElementById('submit-button').disabled = false;
+                this.style.border = '';
+            } else {
+                document.getElementById('submit-button').disabled = true;
+            }
+        });
+    </script>
+</div>
+{% endblock %}
+
+

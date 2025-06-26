@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="progress mb-3">
+    <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">10%</div>
+</div>
+<div class="row mt-4">
+    <form hx-post="/filters1" hx-target="#game-container" hx-swap="outerHTML">
+        <div class="form-group filter col-12">
+            <label for="jobZone" class="form-label">What is the highest level of education you have completed?</label>
+            <select class="form-select" id="jobZone" name="jobZone"  style="max-width:600px;">
+                <option selected>Choose...</option>
+                <option value="1">Some high school</option>
+                <option value="2">High school</option>
+                <option value="3">2-year community college or vocational/technical school program</option>
+                <option value="4">4-year university academic program</option>
+                <option value="5">Post-baccalaureate program (graduate or professional degree)</option>
+            </select>
+        </div>
+        <div class="form-group filter col-12" id="degreeFieldDiv" style="display: none; max-width:600px;">
+            <label for="degreeField" class="form-label">What was the focus of your highest degree / program?</label>
+            <select class="form-select" id="degreeField" name="degreeField">
+                <option value = "na" selected>Choose...</option>
+                <option value="bio">Biological and agricultural sciences</option>
+                <option value="comp">Computer and information sciences</option>
+                <option value="math">Mathematics and statistics</option>
+                <option value="chem">Chemistry</option>
+                <option value="geo">Earth, atmospheric, and ocean sciences</option>
+                <option value="phys">Physics and astronomy</option>
+                <option value="socsci">Social sciences</option>
+                <option value="eng">Engineering</option>
+                <option value="health">Health</option>
+                <option value="tech">Technology and technical fields</option>
+                <option value="mgmt">Management and administration</option>
+                <option value="ed">Education</option>
+                <option value="socsvc">Social service</option>
+                <option value="sales">Sales and marketing </option>
+                <option value="art">Art and humanities </option>
+                <option value="nonse">Other non-Science & Engineering fields</option>
+                <option value="se">Other Science & Engineering-related fields</option>
+            </select>
+        </div>
+        <button id="submit-button" type="submit" class="btn btn-primary" disabled>Next</button>
+    </form> 
+</div>
+<script>
+    var jobZoneSelect = document.getElementById('jobZone');
+    var degreeFieldSelect = document.getElementById('degreeField');
+    var submitButton = document.getElementById('submit-button');
+
+    function updateSubmitButton() {
+        var jobZoneValue = parseInt(jobZoneSelect.value);
+        var degreeFieldValue = degreeFieldSelect.value;
+        if ((jobZoneValue === 1 || jobZoneValue === 2) || (jobZoneValue >= 3 && degreeFieldValue !== 'Choose...')) {
+            submitButton.disabled = false;
+        } else {
+            submitButton.disabled = true;
+        }
+    }
+
+    jobZoneSelect.addEventListener('change', function() {
+        var jobZoneValue = parseInt(this.value);
+        var degreeFieldDiv = document.getElementById('degreeFieldDiv');
+        if (jobZoneValue >= 3) {
+            degreeFieldDiv.style.display = 'block';
+        } else {
+            degreeFieldDiv.style.display = 'none';
+        }
+        updateSubmitButton();
+    });
+
+    degreeFieldSelect.addEventListener('change', updateSubmitButton);
+</script>
+{% endblock %}
