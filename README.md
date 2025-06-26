@@ -102,7 +102,7 @@ of living, and hazard risk values at the city level.
 |   NRI              |  haz\_wildfire\_risk\_rating\_rank           |  int  |                     
 |   NRI              |  haz\_winter\_weather\_risk\_rating\_rank    |  int  |                     
 
-**jobZones|  interestsSalariesByState**
+**jobZonesInterestsSalariesByState**
 
 This table combines the data from the US Bureau of Labor Statistics,
 Occupational Employment Statistics, May 2023 (BLS) and the O\*NET® 28.3
